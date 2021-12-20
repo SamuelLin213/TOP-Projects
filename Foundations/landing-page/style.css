@@ -1,0 +1,174 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: roboto;
+}
+
+.section1 {
+  background-color: #202937;
+
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 20px;
+  margin: 0px 100px;
+
+  gap: 20px;
+}
+
+.headerLogo{
+  color: white;
+  font-size: 25px;
+}
+
+button.signUp{
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: royalblue;
+  border: 1px solid royalblue;
+  color: white;
+  width: 100px;
+}
+
+.frontTitle{
+  font-size: 50px;
+}
+
+.frontPanel{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  padding: 20px;
+  margin: 50px 100px 50px 100px;
+}
+
+.frontText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  row-gap: 10px;
+}
+
+.frontImage{
+  display: flex;
+  justify-content: flex-end;
+}
+
+img {
+  width: 70%;
+}
+
+.section2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 25px;
+}
+
+.box {
+  width: 100px;
+  padding: 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.section2 #subtext{
+  color: black;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.roundBox{
+  border-radius: 25px;
+  border: 2px solid #3F7FBF;
+  padding: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.infoBoxes{
+  display: flex;
+}
+
+.section3{
+  background-color: #D4D3D3;
+  display: flex;
+  flex-direction: column;
+
+  padding: 50px 250px;
+}
+
+.section3 .quote{
+  align-items: center;
+  font-size: 40px;
+}
+
+.section3 .author{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  padding: 10px 20px;
+}
+
+.section4{
+}
+
+#bluebox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #4186F9;
+
+  border-radius: 10px;
+  border: 2px solid #3F7FBF;
+  padding: 30px;
+  margin: 100px;
+  width: 70%;
+  height: auto;
+  color: white;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#bluebox .text{
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.section4 button{
+  border-radius: 8px;
+  background: #4186F9;
+  border: 3px solid white;
+  color: white;
+  width: 125px;
+  height: 50%;
+
+  font-weight: 900;
+}
+
+.footer {
+  background-color: #202937;
+  color: white;
+  font-size: 20px;
+  padding: 30px;
+  text-align: center;
+}
