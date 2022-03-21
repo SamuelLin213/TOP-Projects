@@ -1,0 +1,12 @@
+.info {
+  font-size: 30px;
+  text-align: center;
+}
+
+.choices{
+  font-size: 30px;
+}
+
+body {
+  background-color: rgba(191, 127, 63, 0.5);
+}

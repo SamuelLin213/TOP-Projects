@@ -1,8 +1,10 @@
 let playerScore = 0, computerScore = 0;
+let reset = false;
 
 function computerPlay()
 {
-  let rand = Math.floor(Math.random()*3);
+  let rand = Math.floor(Math.random() * (2 - 0 + 1) + 0);
+
 
   if(rand === 0)
   {
@@ -52,7 +54,7 @@ function changeToInt(choice)
   }
 }
 
-function play(playerSelection, computerSelection)
+function play(playerSelection, computerSelection, tied)
 {
   let player = playerSelection;
   let computer = computerSelection();
@@ -76,6 +78,11 @@ function play(playerSelection, computerSelection)
     computerScore++;
   }
 
+  if(result[playerChoice][computerChoice] == "tied")
+  {
+    tied.textContent = "You tied!";
+  }
+
   return("You " + result[playerChoice][computerChoice] + "! " + player + " " +
   result[playerChoice][computerChoice] + " to " + computer);
 }
@@ -91,14 +98,9 @@ function checkScore(result, score1, score2)
     {
       result.textContent = "Result: You lost!";
     }
-    setTimeout(function(){
-      result.textContent = "Result:";
-      playerScore = 0;
-      computerScore = 0;
-      score1.textContent = "Your score: " + playerScore;
-      score2.textContent = "Computer score: " + computerScore;
-  }, 2000);
+    return true;
   }
+  return false;
 }
 function game()
 {
@@ -109,9 +111,19 @@ function game()
   // }
   const container  = document.querySelector('body');
 
+  const tied = document.createElement('div');
+  tied.textContent = " ";
+  tied.style.cssText = 'padding: 10% 0 10% 0; font-size: 30px; height: 30px; text-align: center;'
+
+  const buttons = document.createElement('div');
+  buttons.style.cssText = 'display: flex; flex-direction: row; justify-content: center;\
+  align-items: center; height: 20%; padding-bottom: 75px;'
   const result = document.createElement('div');
+  result.classList.add('info');
   const yourScore = document.createElement('div');
+  yourScore.classList.add('info');
   const computScore = document.createElement('div');
+  computScore.classList.add('info');
 
   yourScore.textContent = playerScore;
   computScore.textContent = computScore;
@@ -120,42 +132,80 @@ function game()
   computScore.textContent = "Computer score: " + computerScore;
 
   const rock = document.createElement('button');
-  rock.classList.add('rock');
+  rock.classList.add('choices');
   rock.textContent = 'Rock';
   const paper = document.createElement('button');
-  paper.classList.add('paper');
+  paper.classList.add('choices');
   paper.textContent = 'Paper';
   const scissors = document.createElement('button');
-  scissors.classList.add('scissors');
+  scissors.classList.add('choices');
   scissors.textContent = 'Scissors';
 
-  container.appendChild(rock);
-  container.appendChild(paper);
-  container.appendChild(scissors);
+  container.appendChild(tied);
+  buttons.appendChild(rock);
+  buttons.appendChild(paper);
+  buttons.appendChild(scissors);
+  container.appendChild(buttons);
   container.appendChild(computScore);
   container.appendChild(yourScore);
   container.appendChild(result);
 
   rock.addEventListener('click', function() {
-    console.log(play("Rock", computerPlay));
+    if(reset)
+    {
+      result.textContent = "Result:";
+      playerScore = 0;
+      computerScore = 0;
+      yourScore.textContent = "Your score: " + playerScore;
+      computScore.textContent = "Computer score: " + computerScore;
+    }
+    reset = false;
+    tied.textContent = " ";
+
+    console.log(play("Rock", computerPlay, tied));
     yourScore.textContent = "Your score: " + playerScore;
     computScore.textContent = "Computer score: " + computerScore;
 
-    checkScore(result, yourScore, computScore);
+    if(checkScore(result, yourScore, computScore))
+      reset = true;
   });
   paper.addEventListener('click', function() {
-    console.log(play("Paper", computerPlay));
+    if(reset)
+    {
+      result.textContent = "Result:";
+      playerScore = 0;
+      computerScore = 0;
+      yourScore.textContent = "Your score: " + playerScore;
+      computScore.textContent = "Computer score: " + computerScore;
+    }
+    reset = false;
+    tied.textContent = " ";
+
+    console.log(play("Paper", computerPlay, tied));
     yourScore.textContent = "Your score: " + playerScore;
     computScore.textContent = "Computer score: " + computerScore;
 
-    checkScore(result, yourScore, computScore);
+    if(checkScore(result, yourScore, computScore))
+      reset = true;
   });
   scissors.addEventListener('click', function() {
-    console.log(play("Scissors", computerPlay));
+    if(reset)
+    {
+      result.textContent = "Result:";
+      playerScore = 0;
+      computerScore = 0;
+      yourScore.textContent = "Your score: " + playerScore;
+      computScore.textContent = "Computer score: " + computerScore;
+    }
+    reset = false;
+    tied.textContent = " ";
+
+    console.log(play("Scissors", computerPlay, tied));
     yourScore.textContent = "Your score: " + playerScore;
     computScore.textContent = "Computer score: " + computerScore;
 
-    checkScore(result, yourScore, computScore);
+    if(checkScore(result, yourScore, computScore))
+      reset = true;
   });
 }
 
