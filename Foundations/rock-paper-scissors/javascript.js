@@ -72,13 +72,15 @@ function play(playerSelection, computerSelection, tied)
   if(result[playerChoice][computerChoice] === "won")
   {
     playerScore++;
+    tied.textContent = "You won!";
   }
   else if(result[playerChoice][computerChoice] === "lost")
   {
     computerScore++;
+    tied.textContent = "You lost!";
   }
 
-  if(result[playerChoice][computerChoice] == "tied")
+  if(result[playerChoice][computerChoice] === "tied")
   {
     tied.textContent = "You tied!";
   }
