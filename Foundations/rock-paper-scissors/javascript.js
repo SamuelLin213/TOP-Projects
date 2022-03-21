@@ -54,7 +54,7 @@ function changeToInt(choice)
 
 function play(playerSelection, computerSelection)
 {
-  let player = playerSelection();
+  let player = playerSelection;
   let computer = computerSelection();
 
   let playerChoice = parseInt(changeToInt(player));
@@ -79,23 +79,84 @@ function play(playerSelection, computerSelection)
   return("You " + result[playerChoice][computerChoice] + "! " + player + " " +
   result[playerChoice][computerChoice] + " to " + computer);
 }
+function checkScore(result, score1, score2)
+{
+  if(playerScore == 5 || computerScore == 5)
+  {
+    if(playerScore == 5)
+    {
+      result.textContent = "Result: You won!";
+    }
+    else if(computerScore == 5)
+    {
+      result.textContent = "Result: You lost!";
+    }
+    setTimeout(function(){
+      result.textContent = "Result:";
+      playerScore = 0;
+      computerScore = 0;
+      score1.textContent = "Your score: " + playerScore;
+      score2.textContent = "Computer score: " + computerScore;
+  }, 2000);
+  }
+}
 function game()
 {
-  for(let i = 0; i < 5; i++)
-  {
-      console.log(play(playerPlay, computerPlay));
-  }
+  //plays 5 rounds
+  // for(let i = 0; i < 5; i++)
+  // {
+  //     console.log(play(playerPlay, computerPlay));
+  // }
+  const container  = document.querySelector('body');
 
-  if(playerScore > computerScore)
-  {
-    console.log("You won!");
-  }
-  else if(playerScore < computerScore){
-    console.log("You lost!");
-  }
-  else{
-    console.log("You tied!");
-  }
+  const result = document.createElement('div');
+  const yourScore = document.createElement('div');
+  const computScore = document.createElement('div');
+
+  yourScore.textContent = playerScore;
+  computScore.textContent = computScore;
+  result.textContent = "Result: ";
+  yourScore.textContent = "Your score: " + playerScore;
+  computScore.textContent = "Computer score: " + computerScore;
+
+  const rock = document.createElement('button');
+  rock.classList.add('rock');
+  rock.textContent = 'Rock';
+  const paper = document.createElement('button');
+  paper.classList.add('paper');
+  paper.textContent = 'Paper';
+  const scissors = document.createElement('button');
+  scissors.classList.add('scissors');
+  scissors.textContent = 'Scissors';
+
+  container.appendChild(rock);
+  container.appendChild(paper);
+  container.appendChild(scissors);
+  container.appendChild(computScore);
+  container.appendChild(yourScore);
+  container.appendChild(result);
+
+  rock.addEventListener('click', function() {
+    console.log(play("Rock", computerPlay));
+    yourScore.textContent = "Your score: " + playerScore;
+    computScore.textContent = "Computer score: " + computerScore;
+
+    checkScore(result, yourScore, computScore);
+  });
+  paper.addEventListener('click', function() {
+    console.log(play("Paper", computerPlay));
+    yourScore.textContent = "Your score: " + playerScore;
+    computScore.textContent = "Computer score: " + computerScore;
+
+    checkScore(result, yourScore, computScore);
+  });
+  scissors.addEventListener('click', function() {
+    console.log(play("Scissors", computerPlay));
+    yourScore.textContent = "Your score: " + playerScore;
+    computScore.textContent = "Computer score: " + computerScore;
+
+    checkScore(result, yourScore, computScore);
+  });
 }
 
 game();
