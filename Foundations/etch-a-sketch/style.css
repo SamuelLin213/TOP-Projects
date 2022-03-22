@@ -1,0 +1,26 @@
+.boxes {
+  background-color: white;
+  margin: 1px;
+}
+
+.board {
+  background-color: white;
+  height: 400px;
+  width: 400px;
+  display: grid;
+  grid-template-rows: repeat(16, 1fr);
+  grid-template-columns: repeat(16, 1fr);
+  margin: 5% 25% 0 50%;
+  border-style: solid;
+  border-color: black;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  padding: 30px 0px 0px 0px;
+}
+
+.onHover {
+  background-color: red;
+}
