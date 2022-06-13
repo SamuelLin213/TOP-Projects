@@ -114,7 +114,7 @@ function game()
   const container  = document.querySelector('body');
 
   const tied = document.createElement("div");
-  tied.textContent = "Hello there";
+  tied.textContent = "";
   tied.style.cssText = 'padding: 10% 0 10% 0; font-size: 30px; height: 30px; text-align: center;'
 
   const buttons = document.createElement("div");
