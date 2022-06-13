@@ -113,18 +113,18 @@ function game()
   // }
   const container  = document.querySelector('body');
 
-  const tied = document.createElement('div');
-  tied.textContent = " ";
+  const tied = document.createElement("div");
+  tied.textContent = "Hello there";
   tied.style.cssText = 'padding: 10% 0 10% 0; font-size: 30px; height: 30px; text-align: center;'
 
-  const buttons = document.createElement('div');
+  const buttons = document.createElement("div");
   buttons.style.cssText = 'display: flex; flex-direction: row; justify-content: center;\
   align-items: center; height: 20%; padding-bottom: 75px;'
-  const result = document.createElement('div');
+  const result = document.createElement("div");
   result.classList.add('info');
-  const yourScore = document.createElement('div');
+  const yourScore = document.createElement("div");
   yourScore.classList.add('info');
-  const computScore = document.createElement('div');
+  const computScore = document.createElement("div");
   computScore.classList.add('info');
 
   yourScore.textContent = playerScore;
@@ -133,13 +133,13 @@ function game()
   yourScore.textContent = "Your score: " + playerScore;
   computScore.textContent = "Computer score: " + computerScore;
 
-  const rock = document.createElement('button');
+  const rock = document.createElement("button");
   rock.classList.add('choices');
   rock.textContent = 'Rock';
-  const paper = document.createElement('button');
+  const paper = document.createElement("button");
   paper.classList.add('choices');
   paper.textContent = 'Paper';
-  const scissors = document.createElement('button');
+  const scissors = document.createElement("button");
   scissors.classList.add('choices');
   scissors.textContent = 'Scissors';
 
