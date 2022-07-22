@@ -1,0 +1,69 @@
+.calculator {
+  height: 75vh;
+  width: 30vw;
+  border-radius: 25px;
+  border: 2px solid gray;
+  background-color: gray;
+  margin-top: 10vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.display {
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  width: 90%;
+  height: 20%;
+  border-radius: 25px;
+  border: none;
+  background-color: white;
+}
+
+.display p {
+  margin: 0;
+  padding: 5% 5% 10% 0;
+  /* padding-right: 10%; */
+  font-size: 300%;
+}
+
+.buttons {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  width: 90%;
+  height: 70%;
+  border-radius: 25px;
+  border: none;
+  background-color: gray;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    "num num num op"
+    "num num num op"
+    "num num num op"
+    "num num num op"
+    "clr clr ent ent";
+}
+
+.btn {
+  color: black;
+  background: beige;
+  border-radius: 25px;
+  font-size: 30px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.backspaceBtn {
+  color: white;
+  background: red;
+}
+
+.operationBtn {
+  color: white;
+  background: darkblue;
+}
